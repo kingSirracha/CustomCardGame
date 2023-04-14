@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Deck.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Card.tscn" type="PackedScene" id=2]
+
+[node name="Deck" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Card" parent="." instance=ExtResource( 2 )]
+title_text = "What"
+
+[node name="Card2" parent="." instance=ExtResource( 2 )]
+title_text = "if"
+
+[node name="Card3" parent="." instance=ExtResource( 2 )]
+title_text = "we"
+
+[node name="Card4" parent="." instance=ExtResource( 2 )]
+title_text = "strive"
+
+[node name="Card5" parent="." instance=ExtResource( 2 )]
+title_text = "Oh no"
+
+[node name="Card6" parent="." instance=ExtResource( 2 )]
+title_text = "Corn"
