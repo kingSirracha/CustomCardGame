@@ -27,11 +27,12 @@ func spend_energy(energy_spent):
 
 func _on_Button_pressed():
 	#draw a card from the deck and add it to the hand
-	var deck = Global.Deck
-	var card = deck.draw()
+	hand.draw_to_hand()
+#	var deck = Global.Deck
+#	var card = deck.draw()
 	#if a card could be drawn, add it
-	if card != null:
-		hand.add_child(card)
+#	if card != null:
+#		hand.add_child(card)
 
 
 func _on_End_Turn_pressed():
@@ -44,4 +45,4 @@ func _on_End_Turn_pressed():
 	for card in hand.get_children():
 		discard.add_card(card)
 	for n  in range(5):
-		hand.add_child(deck.draw())
+		hand.draw_to_hand()

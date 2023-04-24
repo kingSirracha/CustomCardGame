@@ -17,6 +17,7 @@ var select_scale = 2
 #false for DECK, DISCARD, and PLAYFIELD when it's added
 var can_click = true
 export var title_text = "hello"
+
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -36,15 +37,19 @@ func select_movement(move_vect):
 	button.rect_position += move_vect
 
 
-
+#for when the card is "played"
 func _on_TextureButton_pressed():
 	if can_click:
 		if(Global.Main.spend_energy(1)):
+			#resizes card to normal size
 			select_scaling(1)
+			#resets positioning
 			card_image.rect_position = Vector2.ZERO
 			button.rect_position = Vector2.ZERO
+			run_properties()
 			Global.Discard.add_card(self)
 
+#for card hovering and UI clarity
 func _on_TextureButton_mouse_entered():
 	if can_click:
 		select_scaling(select_scale)
@@ -55,3 +60,10 @@ func _on_TextureButton_mouse_exited():
 	if can_click:
 		select_scaling(1)
 		select_movement(select_vect * -1)
+
+#property actions
+func run_properties():
+	#print("func ran!")
+	var properties = get_node("Properties")
+	for child in properties.get_children():
+		child.property_action()

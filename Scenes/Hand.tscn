@@ -9,6 +9,9 @@ margin_bottom = 289.0
 rect_scale = Vector2( 0.5, 0.5 )
 alignment = 1
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Card" parent="." instance=ExtResource( 1 )]
 margin_left = 237.0
@@ -18,7 +21,7 @@ title_text = "Not a Card"
 [node name="Card2" parent="." instance=ExtResource( 1 )]
 margin_left = 421.0
 margin_right = 601.0
-title_text = "Card 1"
+title_text = "Card +1"
 
 [node name="Card3" parent="." instance=ExtResource( 1 )]
 margin_left = 605.0
