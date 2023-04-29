@@ -51,7 +51,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-Singleton="*res://Scenes/Singleton.tscn"
+Saves="*res://Scripts/Saving/Saves.gd"
 
 [editor]
 

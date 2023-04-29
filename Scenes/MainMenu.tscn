@@ -38,5 +38,10 @@ margin_right = 451.0
 margin_bottom = 76.0
 text = "Deck Editor"
 
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 29.0
+text = "Tests loading"
+
 [connection signal="pressed" from="VBoxContainer/Start Game" to="." method="_on_Start_Game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Deck Editor" to="." method="_on_Deck_Editor_pressed"]

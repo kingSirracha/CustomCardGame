@@ -26,4 +26,6 @@ func _on_Back_pressed():
 
 
 func _on_AddCard_pressed():
+	Saves.save_num += 1
+	Saves.save_game()
 	deck.add_card(testCard.duplicate())

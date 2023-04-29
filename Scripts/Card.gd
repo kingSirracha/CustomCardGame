@@ -68,3 +68,9 @@ func run_properties():
 	var properties = get_node("Properties")
 	for child in properties.get_children():
 		child.property_action()
+
+func get_savedata():
+	var data = {
+		"title": title.text
+	}
+	return data

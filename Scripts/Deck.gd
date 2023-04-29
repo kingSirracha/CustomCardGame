@@ -69,3 +69,14 @@ func discard_to_draw():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func get_savedata():
+	var i = 0
+	var cards = []
+	for card in get_children():
+		cards[i] = card.get_savedata()
+		i += 1
+	var data = {
+		"cards": cards
+	}
+	return data
