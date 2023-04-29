@@ -10,6 +10,7 @@ var energy = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("main loaded")
 	display.update_display(energy)
 	Global.set_main(self)
 

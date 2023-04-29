@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/DeckEditor.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Deck.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Card.tscn" type="PackedScene" id=5]
+
+[node name="DeckEditor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+mainMenuScene = ExtResource( 3 )
+
+[node name="Deck" parent="." instance=ExtResource( 4 )]
+visablity = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -101.0
+margin_top = 13.0
+margin_right = -14.0
+margin_bottom = 89.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+margin_right = 87.0
+margin_bottom = 36.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddCard" type="Button" parent="VBoxContainer"]
+margin_top = 40.0
+margin_right = 87.0
+margin_bottom = 76.0
+text = "Add Card"
+
+[node name="Card" parent="." instance=ExtResource( 5 )]
+margin_left = 3.0
+margin_top = 344.0
+margin_right = 183.0
+margin_bottom = 604.0
+title_text = "Editors card"
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="VBoxContainer/AddCard" to="." method="_on_AddCard_pressed"]

@@ -23,7 +23,8 @@ export var title_text = "hello"
 func _ready():
 	title.text = title_text
 
-
+func set_visable(vis):
+	visible = vis
 
 #used to handel the scaling of objects when the card is hoverd over
 func select_scaling(scale):

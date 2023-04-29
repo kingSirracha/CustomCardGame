@@ -5,19 +5,31 @@ extends Node
 # var a = 2
 # var b = "text"
 onready var cards = get_tree().get_nodes_in_group("Card")
+export var visablity : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("deck loaded")
+#	if (Global.Deck != null):
+#		for card in get_children():
+#			card.queue_free()
+##		for newcard in Global.Deck.get_children():
+##			add_child(newcard)
+	if !visablity:
+		set_visibility(false)
 	Global.set_deck(self)
-	
 	#basic shuffle code
 	shuffle()
 
-
+func set_visibility(vis):
+	for card in get_children():
+		card.set_visable(vis)
+	visablity = vis
 
 func shuffle():
 	var rng = RandomNumberGenerator.new()
 	for card in get_children():
+		card.can_click = false
 		rng.randomize()
 		var r = rng.randi_range(0,get_children().size())
 		move_child(card, r)
@@ -41,10 +53,12 @@ func draw():
 #will add the card to the deck and remove it from it's previous location
 func add_card(card):
 	var new_card = card.duplicate()
+	new_card.set_visable(visablity)
 	new_card.rect_position = Vector2(0,0)
 	new_card.can_click = false
 	var parent = card.get_parent()
-	parent.remove_child(card)
+	if (parent != null):
+		parent.remove_child(card)
 	add_child(new_card)
 
 func discard_to_draw():

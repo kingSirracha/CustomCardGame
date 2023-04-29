@@ -15,6 +15,9 @@ func _ready():
 
 func set_deck(deck):
 	Deck = deck
+#	if (Singleton.get_node("Deck") == null):
+#		Singleton.add_child(deck.duplicate())
+	print(deck)
 
 func set_discard(discard):
 	Discard = discard

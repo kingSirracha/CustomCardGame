@@ -11,6 +11,7 @@
 script = ExtResource( 3 )
 
 [node name="Deck" parent="." instance=ExtResource( 2 )]
+visablity = true
 
 [node name="Discard" parent="." instance=ExtResource( 4 )]
 
