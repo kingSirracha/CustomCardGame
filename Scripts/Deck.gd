@@ -10,11 +10,7 @@ export var visablity : bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("deck loaded")
-#	if (Global.Deck != null):
-#		for card in get_children():
-#			card.queue_free()
-##		for newcard in Global.Deck.get_children():
-##			add_child(newcard)
+	load_savedata()
 	if !visablity:
 		set_visibility(false)
 	Global.set_deck(self)
@@ -74,9 +70,20 @@ func get_savedata():
 	var i = 0
 	var cards = []
 	for card in get_children():
-		cards[i] = card.get_savedata()
+		cards.append(card.get_savedata())
 		i += 1
 	var data = {
 		"cards": cards
 	}
 	return data
+
+func load_savedata():
+	var card_ref = preload("res://Scenes/Card.tscn")
+	for card in get_children():
+		card.queue_free()
+	var data = Saves.deck_data
+	for card_info in data["cards"]:
+		var title_text = card_info["title"]
+		var temp_card = card_ref.instance()
+		temp_card.title_text = title_text
+		add_card(temp_card)

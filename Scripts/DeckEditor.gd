@@ -20,12 +20,12 @@ func _ready():
 
 
 func _on_Back_pressed():
+	Saves.deck_data = deck.get_savedata()
+	Saves.save_game()
 	get_tree().change_scene(mainMenuScene.resource_path)
 
 
 
 
 func _on_AddCard_pressed():
-	Saves.save_num += 1
-	Saves.save_game()
 	deck.add_card(testCard.duplicate())
