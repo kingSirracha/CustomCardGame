@@ -16,6 +16,7 @@ var select_scale = 2
 #is true when the card is in an interactable area such as the HAND
 #false for DECK, DISCARD, and PLAYFIELD when it's added
 var can_click = true
+var can_editor_click = false
 export var title_text = "hello"
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +26,11 @@ func _ready():
 
 func set_visable(vis):
 	visible = vis
+
+func set_title(in_text):
+	title_text = in_text
+	title.text = in_text
+
 
 #used to handel the scaling of objects when the card is hoverd over
 func select_scaling(scale):
@@ -49,6 +55,9 @@ func _on_TextureButton_pressed():
 			button.rect_position = Vector2.ZERO
 			run_properties()
 			Global.Discard.add_card(self)
+	if can_editor_click:
+		print("line ran")
+		Global.Editor.card_clicked(self)
 
 #for card hovering and UI clarity
 func _on_TextureButton_mouse_entered():
@@ -68,6 +77,9 @@ func run_properties():
 	var properties = get_node("Properties")
 	for child in properties.get_children():
 		child.property_action()
+
+func add_property(property):
+	get_node("Properties").add_child(property)
 
 func get_savedata():
 	var data = {

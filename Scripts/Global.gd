@@ -8,6 +8,7 @@ var Deck
 var Discard
 var Main
 var Hand
+var Editor
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,3 +28,6 @@ func set_main(main):
 
 func set_hand(hand):
 	Hand = hand
+
+func set_editor(editor):
+	Editor = editor

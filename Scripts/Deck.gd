@@ -15,7 +15,7 @@ func _ready():
 		set_visibility(false)
 	Global.set_deck(self)
 	#basic shuffle code
-	shuffle()
+	#shuffle()
 
 func set_visibility(vis):
 	for card in get_children():
@@ -53,8 +53,9 @@ func add_card(card):
 	new_card.rect_position = Vector2(0,0)
 	new_card.can_click = false
 	var parent = card.get_parent()
-	if (parent != null):
-		parent.remove_child(card)
+	card.queue_free()
+#	if (parent != null):
+#		parent.remove_child(card)
 	add_child(new_card)
 
 func discard_to_draw():
@@ -79,11 +80,24 @@ func get_savedata():
 
 func load_savedata():
 	var card_ref = preload("res://Scenes/Card.tscn")
+	#get rid of previous children
 	for card in get_children():
-		card.queue_free()
+		remove_child(card)
 	var data = Saves.deck_data
+	#set card data
 	for card_info in data["cards"]:
 		var title_text = card_info["title"]
 		var temp_card = card_ref.instance()
 		temp_card.title_text = title_text
+		#temp add property TODO: allow many properties to be changed
+		var property = preload("res://Scenes/Properties/Draw.tscn")
+		temp_card.add_property(property.instance())
+		#add currently read card into deck
 		add_card(temp_card)
+
+func clear_cards():
+	for card in get_children():
+		card.queue_free()
+
+func get_cards():
+	return get_children()

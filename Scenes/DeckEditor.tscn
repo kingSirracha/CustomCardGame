@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/DeckEditor.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Deck.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Card.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/CardEditor.tscn" type="PackedScene" id=5]
 
 [node name="DeckEditor" type="Control"]
 anchor_right = 1.0
@@ -16,7 +16,6 @@ __meta__ = {
 mainMenuScene = ExtResource( 3 )
 
 [node name="Deck" parent="." instance=ExtResource( 4 )]
-visablity = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 1.0
@@ -44,12 +43,46 @@ margin_right = 87.0
 margin_bottom = 76.0
 text = "Add Card"
 
-[node name="Card" parent="." instance=ExtResource( 5 )]
-margin_left = 3.0
-margin_top = 344.0
-margin_right = 183.0
-margin_bottom = 604.0
-title_text = "Editors card"
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = -233.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardDisplay" type="GridContainer" parent="ScrollContainer"]
+columns = 4
+
+[node name="Click UI" type="VBoxContainer" parent="."]
+margin_left = -193.0
+margin_top = -101.0
+margin_right = -77.0
+margin_bottom = -25.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemoveCard" type="Button" parent="Click UI"]
+margin_right = 116.0
+margin_bottom = 36.0
+text = "Remove Card"
+
+[node name="EditCard" type="Button" parent="Click UI"]
+margin_top = 40.0
+margin_right = 116.0
+margin_bottom = 76.0
+text = "Edit Card"
+
+[node name="CardEditor" parent="." instance=ExtResource( 5 )]
+margin_left = -1025.0
+margin_top = -601.0
+margin_right = -1025.0
+margin_bottom = -601.0
 
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="VBoxContainer/AddCard" to="." method="_on_AddCard_pressed"]
+[connection signal="pressed" from="Click UI/RemoveCard" to="." method="_on_RemoveCard_pressed"]
+[connection signal="pressed" from="Click UI/EditCard" to="." method="_on_EditCard_pressed"]
