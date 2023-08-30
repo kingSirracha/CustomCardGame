@@ -1,54 +1,10 @@
-<p align="right">
-<a href="https://discord.gg/KnJGY9S">
-  <img src="https://github.com/fenix-hub/ColoredBadges/blob/master/svg/social/discord.svg" alt="react" style="vertical-align:top; margin:6px 4px">
-</a>
-</p>
+# Custom Card Game
 
-This plugin is now supported in [Godot Extended Library Discord](https://discord.gg/JNrcucg), check out the [Godot Extended Library Project](https://github.com/godot-extended-libraries)!
+A personal project that started with the question "can we make a digital version of Blank White Cards?". If you're unfamiliar with it Blank White Cards usually called 1000 Blank White Cards is a game where cards are usually made by the very people playing them. Everyone gets together, comes up with fun ideas for cards, and then they put all the cards in the same deck. After playing a few games with different groups, a friend of mine initally thought of and attempted the challange of converting the endless sea of options to the digital format. While theory crafting for my own attempt a different idea branched from the initial. "There's many deckbuilders out there but what about crafting the cards themselves?" and so the Idea for the Custom card game project began. Now here and there I add more and more to the project as time goes on.
 
-<img src="addons/github-integration/github-logo.png" align="left" width="64" height="64">
+# The Current State
 
-# GitHub Integration
-A complete GitHub integration for your Godot Editor! Manage your project without even opening your browser.
-
-Author: *"Nicolo (fenix) Santilio"*  
-Version: *1.4.3*  
-Godot Version: *3.2.4-rc3*  
-Wiki: *[supported](https://github.com/fenix-hub/godot-engine.github-integration/wiki)*  
-
-<img align="center" src="addons/github-integration/screenshots/banner.png">
-
-## What is this?
-*GitHub Integration* is a addon for Godot Engine that I've created mainly for a personal purpose.  
-Pushing and Pulling repositories while I'm working on Godot (especially if I'm under a GameJam) could take some time and force me to save the project, open the brwoser/git bash/git gui, and do all the stuff.  
-With this little addon which works directly in the editor, managing all your repositories will be very easy.  
-
-## What can it do?
-*Github Integration* offers the main functionalities provided by GitHub (and git itself), in a more accessible way.  
-Currenlty, you can:
-- Manage all of your public and private **repositories**, *including* the ones you share with organizations and the ones in which you are a collaborator (with proper permissions): create, delete, push and clone repositories within your Godot project
-- Manage all of your public and private **gists**: delete, edit and create gists with a functional text editor
-- Manage collaboration invitations, inviting user to your repositories or accept/decline invitations you have received
-
-## How does it work?
-I'm currently working on a [Wiki](https://github.com/fenix-hub/godot-engine.github-integration/wiki) for this plugin. It is a process that will take some time to complete since I want to provide a well-organized wiki with some basic explanations about GitHub itself. Anyway, I'm working on a user-friendly plugin, so everything should be the very ease to use for GitHub experienced users, and a little intuitive for people who never used GitHub or are not so experienced.
-If you want to see some screenshots you can find them here `addons/github-integration/screenshots`
-
-## Supporters page
-<table>
-  <tr>
-    <th><img src='https://avatars0.githubusercontent.com/u/9788627?s=64&v=4' alt='@masterworm2' width="64"/><br/><a href="https://github.com/masterworm2">masterworm2</a></th>
-    <th><img src='https://avatars0.githubusercontent.com/u/48778172?s=64&v=4' alt='@auctru' width="64"/><br/><a href="https://github.com/autcru">autcru</a></th> 
-  </tr>
-</table>
-
-## :warning: Disclaimer  
-As a "work in progress" project, there is *no warranty* for any eventual issue and bug that may broke your project.  
-I don't assume any responsibility for possible corruptions of your project. It is always advisable to keep a copy of your project and check any changes you make in your Github repository.  
-
------------------
-> This text file was created via [TextEditor Integration](https://github.com/fenix-hub/godot-engine.text-editor) inside Godot Engine's Editor.
-
+Little did I know programming UI, Deck mechanics, Saving Decks, etc... for even the base of a card game takes a good chunk of time. So far Cards can be drawn, played and discarded with the framework for individual card mechanics in place. You can name cards and the mantian across sessions but a UI for adding in the gameplay elements of Cards has yet to be in place. The overall goal is getting some kind of singleplayer mode working at some point but the more immediate goal is a UI for adding and removing a card's gameplay properties while creating some in the process.
 
 
 
